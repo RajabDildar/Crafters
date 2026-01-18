@@ -7,6 +7,7 @@ import {
     Heart,
     ArrowUp,
     Images,
+    ArrowLeft,
 } from "lucide-react";
 
 export const Icons = {
@@ -19,4 +20,5 @@ export const Icons = {
     Heart: Heart,
     ArrowUp: ArrowUp,
     Images: Images,
+    ArrowLeft: ArrowLeft
 };

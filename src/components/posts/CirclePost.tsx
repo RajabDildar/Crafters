@@ -8,7 +8,7 @@ interface PostInterface {
 const CirclePost = ({ username, postImage, postText, postDate }: PostInterface) => {
     const Images = Icons.Images
     return (
-        <div className="bg-orange-950 text-white p-3 rounded-2xl">
+        <div className="bg-[#593A16] text-white p-3 rounded-2xl">
             <div className="flex gap-3">
                 <Avatar className="w-24 h-24">
                     <AvatarImage src={postImage} />

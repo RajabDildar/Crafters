@@ -1,19 +1,27 @@
+import CustomDialog from "@/layouts/CustomDialog"
 import CirclesBar from "../menubars/CirclesBar"
+import { Button } from "../ui/button"
 interface CardInterface {
     name: string,
     count?: number,
     date?: string,
-    image: string,
-    cls?: string,
+    image?: string,
+    desc?: string
 }
-const Circles = ({ name, count, date, image, cls }: CardInterface) => {
+const Circles = ({ name, count, date, image, desc }: CardInterface) => {
     return (
-        <div className={"flex flex-col gap-1 bg-stone-400 p-3 rounded-2xl w-full m-auto" + " " + cls}>
-            <CirclesBar image={image} />
-            <p>{name}</p>
-            {count && <p>{count} members</p>}
-            <p>{date}</p>
-        </div>
+        <CustomDialog TriggerBtn={
+            <div className={"flex flex-col gap-1 bg-[#EBE2D0] p-3 rounded-2xl w-full m-auto cursor-pointer"}>
+                <CirclesBar image={image} />
+                <p>{name}</p>
+                {count && <p>{count} members</p>}
+                <p>{date}</p>
+            </div>
+        }
+            title={name}
+            desc={desc}
+            ActionBtn={<Button variant={"whiteBtn"}>Join</Button>}
+        />
     )
 }
 

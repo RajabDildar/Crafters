@@ -20,7 +20,7 @@ const NavMenu = () => {
         },
     ]
     return (
-        <div className="flex items-center justify-around bg-stone-400 text-white bottom-0 fixed z-10 lg:rounded-2xl m-auto lg:max-w-3xl w-full">
+        <div className="flex items-center justify-around bg-[#EBE2D0] text-white bottom-0 fixed z-10 lg:rounded-2xl m-auto lg:max-w-3xl w-full">
             {navItems.map((item) => (
                 <Link className="focus:border-t-2 border-t-orange-950 p-4" to={item.href} key={item.label}>
                     <item.icon className="w-6 h-6" />

@@ -5,17 +5,17 @@ import HelperButtons from "@/components/explore/HelperButtons";
 
 // Array of cards (circles) to display
 const circlesData = [
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name1" },
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name2" },
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name3" },
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name4" },
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name5" },
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
-    { image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name1" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name2" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name3" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name4" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name5" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
+    { desc: "a diverse community of crafters", image: "nkjnk", membersCount: 70, date: "12-12-2000", circleName: "Name" },
 ];
 
 const SearchPage = () => {
@@ -27,7 +27,7 @@ const SearchPage = () => {
     );
 
     return (
-        <div className="min-h-dvh">
+        <div className="min-h-dvh pb-12">
             <div className="p-6 space-y-4">
                 <SearchBar onSearch={setSearchTerm} />
             </div>
@@ -40,6 +40,7 @@ const SearchPage = () => {
                         count={circle.membersCount}
                         date={circle.date}
                         name={circle.circleName}
+                        desc={circle.desc}
                     />
                 ))}
             </div>
