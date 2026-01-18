@@ -1,25 +1,17 @@
-import {
-    Avatar,
-    AvatarFallback,
-    AvatarImage,
-} from "@/components/ui/avatar"
-import { Icons } from "../icons/Icons"
-interface CirclesInterface {
-    circleName: string,
-    membersCount: number,
-    date: string,
+import CirclesBar from "../menubars/CirclesBar"
+interface CardInterface {
+    name: string,
+    count?: number,
+    date?: string,
     image: string,
+    cls?: string,
 }
-const Circles = ({ circleName, membersCount, date, image }: CirclesInterface) => {
-    const Images = Icons.Images
+const Circles = ({ name, count, date, image, cls }: CardInterface) => {
     return (
-        <div className="flex flex-col gap-1 bg-stone-400 p-3 rounded-2xl max-w-36 w-full m-auto">
-            <Avatar className="border-emerald-800 border-4 h-16 w-16">
-                <AvatarImage src={image} />
-                <AvatarFallback>{<Images />}</AvatarFallback>
-            </Avatar>
-            <p>{circleName}</p>
-            <p>{membersCount} members</p>
+        <div className={"flex flex-col gap-1 bg-stone-400 p-3 rounded-2xl w-full m-auto" + " " + cls}>
+            <CirclesBar image={image} />
+            <p>{name}</p>
+            {count && <p>{count} members</p>}
             <p>{date}</p>
         </div>
     )

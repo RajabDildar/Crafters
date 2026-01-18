@@ -37,9 +37,9 @@ const SearchPage = () => {
                     <Circles
                         key={idx}
                         image={circle.image}
-                        membersCount={circle.membersCount}
+                        count={circle.membersCount}
                         date={circle.date}
-                        circleName={circle.circleName}
+                        name={circle.circleName}
                     />
                 ))}
             </div>
