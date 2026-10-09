@@ -1,73 +1,141 @@
-# React + TypeScript + Vite
+# Crafters
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mobile-first community and discovery app for exploring interest-based circles, browsing community posts, and creating new groups. The project is structured as a React + TypeScript front-end prototype with a social-media-inspired layout, route-based navigation, and reusable UI components.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Crafters is designed around the idea of communities (“circles”) where users can:
 
-## React Compiler
+- browse a home feed of community posts
+- explore available circles and search by name
+- view profile information
+- create a new circle from a dedicated screen
+- navigate on mobile using a bottom nav bar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The current codebase uses static/mock data rather than a backend service, so it behaves as a polished frontend prototype and UI concept.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router DOM
+- Radix UI primitives
+- Lucide React icons
+- ESLint + TypeScript ESLint
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+Crafters/
+├── public/                 Static assets
+├── src/
+│   ├── components/
+│   │   ├── create/         Create-circle UI
+│   │   ├── explore/        Search, helper controls, circle cards
+│   │   ├── icons/          Reusable SVG/icon definitions
+│   │   ├── menubars/       Nav and circles strip
+│   │   ├── posts/          Feed post cards
+│   │   └── ui/             Shared UI primitives
+│   ├── layouts/            Route layout wrappers
+│   ├── lib/                Utility helpers
+│   ├── pages/              Home, Search, Profile, CreateCircle
+│   ├── App.tsx             Route configuration
+│   ├── main.tsx            App bootstrap and router setup
+│   ├── index.css           Global styles and theme
+│   └── App.css             Legacy app styling
+├── components.json         shadcn/ui configuration
+├── eslint.config.js       ESLint setup
+├── index.html             App entry HTML
+├── package.json           Scripts and dependencies
+├── tsconfig*.json         TypeScript configuration
+├── vite.config.ts         Vite config with aliases and Tailwind
+├── .gitignore
+├── README.md
+├── package-lock.json
+└── public/vite.svg
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## App Flow
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The app uses `BrowserRouter` in `src/main.tsx` and defines routes in `src/App.tsx`:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `/` → Home feed
+- `/search` → searchable community directory
+- `/profile` → profile view
+- `/circle/create` → create-circle flow
+
+A shared `NavbarLayout` wraps all routes and renders a bottom navigation menu for mobile browsing.
+
+## Features
+
+### Home feed
+The `HomePage` renders a horizontally scrollable circle bar and a vertical list of post cards using the `CirclePost` component.
+
+### Search experience
+The `SearchPage` uses a local search term to filter static circle data and presents results in a responsive grid.
+
+### Circle creation UI
+The `CreateCircle` route shows a hero/create screen with a settings panel, checkbox controls, and invited member cards.
+
+### Shared design system
+The app includes reusable UI primitives and styling utilities via Tailwind and `@radix-ui` components, with path alias support via `@` pointing to `src`.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Install dependencies
+
+```bash
+npm install
 ```
+
+### Run locally
+
+```bash
+npm run dev
+```
+
+This starts the Vite development server, typically at:
+
+```text
+http://localhost:5173
+```
+
+### Production build
+
+```bash
+npm run build
+```
+
+### Lint the project
+
+```bash
+npm run lint
+```
+
+## Scripts
+
+From `package.json`:
+
+```json
+"scripts": {
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview"
+}
+```
+
+## Notes
+
+This repository is currently a frontend prototype rather than a full production application. It includes a visually complete social/community interface, but it does not yet connect to a backend API, database, authentication layer, or persistent data store.
+
+## License
+
+No license has been declared for this repository.
